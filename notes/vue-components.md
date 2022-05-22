@@ -173,3 +173,15 @@ export default {
     `,
 }
 ```
+
+# Bring it All Together
+
+## Things You'll Learn
+
+* Component Trees
+* Refactoring Steps
+
+In this lesson, we refactored the original assignments tracking app using components and all the new techniques learned.
+
+The root component of our app now uses and an Assignments component which is made up of two AssignmentLists
+and each list contains multiple Assignment components.
