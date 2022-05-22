@@ -115,7 +115,8 @@ export default {
 Now I want to import this object in my main app and then reference it like we did before.
 
 One issue is that only modules can import other modules.
-To solve this, add the **module** type to the script tag. This tells our browsers that this should be treated as a module.
+To solve this, add the **module** type to the script tag. This tells our browsers that this should be treated as a
+module.
 
 ```html
 
@@ -130,5 +131,45 @@ To solve this, add the **module** type to the script tag. This tells our browser
 </script>
 ```
 
+# Component Props
 
+## Things You'll Learn
 
+* Props
+* Class Object Binding
+
+Extracted App into its own component.
+
+We want to have flexible Vue components, so we need to pass in data from outside. This way, every instance of the
+component could have its own set of props.
+
+Declare props using the `props` object. Each prop is an object with a type and optionally, a default value.
+
+```js
+export default {
+    props: {
+        type: {
+            type: String,
+            default: "primary"
+        },
+
+        processing: Boolean
+    }
+}
+```
+
+When you set class bindings you can use a string, an array or an object. The key of the object is our classes and the
+value is a Boolean.
+If the Boolean is true the classes are added to the element, otherwise they are ignored.
+
+```js
+export default {
+    template: `
+        <button :class="{
+            'bg-gray-200': true,
+            'bg-blue-200': false,    
+        }"
+        ></button>
+    `,
+}
+```
