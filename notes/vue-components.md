@@ -85,3 +85,50 @@ To make the label different for every component, use the `<slot/>` tag in the co
 </script>
 ```
 
+# One Vue Component Per File
+
+## Things You'll Learn
+
+* EcmaScript Imports
+* Vue components per file
+
+Vue components can be stored as inline child but a much cleaner approach is to declare them in their own file.
+
+Store any components in the directory `./js/components/` with the extension _.js_
+
+We can create a new JavaScript module that can export things to the outside world. In this case, the default thing that
+we are exporting is an object.
+
+```js
+export default {
+    template: `
+    `,
+
+    data() {
+        return {
+            // ...
+        };
+    }
+}
+```
+
+Now I want to import this object in my main app and then reference it like we did before.
+
+One issue is that only modules can import other modules.
+To solve this, add the **module** type to the script tag. This tells our browsers that this should be treated as a module.
+
+```html
+
+<script type="module">
+    import AppButton from './js/components/AppButton.js'
+
+    let app = {
+        components: {
+            'app-button': AppButton
+        }
+    };
+</script>
+```
+
+
+
