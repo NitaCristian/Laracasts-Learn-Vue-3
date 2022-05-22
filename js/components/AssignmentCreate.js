@@ -1,0 +1,31 @@
+export default {
+    template: `
+      <form @submit.prevent="add">
+      <div class="border border-gray-600 text-black">
+        <input type="text" placeholder="New assignment..." v-model="newAssignment" class="p-2">
+        <button type="submit" class="bg-white p-2 border-l">Add</button>
+      </div>
+      </form>
+    `,
+
+    props: {
+        assignments: Array
+    },
+
+    data() {
+        return {
+            newAssignment: ''
+        }
+    },
+
+    methods: {
+        add() {
+            this.assignments.push({
+                name: this.newAssignment,
+                complete: false,
+                id: this.assignments.length + 1
+            });
+            this.newAssignment = '';
+        }
+    }
+}
