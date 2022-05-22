@@ -9,10 +9,11 @@ export default {
 
     template: `
       <section class="space-y-6">
+      
       <assignment-list :assignments="filters.inProgress" title="In Progress"></assignment-list>
       <assignment-list :assignments="filters.completed" title="Completed"></assignment-list>
-
-      <assignment-create :assignments="assignments"></assignment-create>
+      <assignment-create @add="add"></assignment-create>
+      
       </section>
     `,
 
@@ -36,9 +37,9 @@ export default {
     },
 
     methods: {
-        add() {
+        add(name) {
             this.assignments.push({
-                name: this.newAssignment,
+                name: name,
                 complete: false,
                 id: this.assignments.length + 1
             });
