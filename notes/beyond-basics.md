@@ -57,3 +57,27 @@ handle the rendering of the tags.
 
 The interaction between the AssignmentList and the AssignmentTags is done by passing the current tag to the child
 component and the child component emits an event to signal that the current tag has to change.
+
+The properties of the assignment-tags component changed.
+
+```html
+
+<assignment-tags
+        :current-tag="currentTag"
+        @change="currentTag = $event"
+/>
+```
+
+New version uses v-model.
+
+```html
+
+<assignment-tags
+        v-model="currentTag"
+/>
+```
+
+In the Vue component the prop becomes modelValue, and the event that has to be emitted is called update:modelValue.
+
+Instead of modelValue, you can use any other variable name but make sure you use the v-model directive using that same
+variable name like this: v-model:var-name.
