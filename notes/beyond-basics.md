@@ -33,3 +33,27 @@ This helps by allowing us to filter assignments by tag.
     </button>
 </div>
 ```
+
+# Component Responsibility
+
+## Things You'll Learn
+
+* Component Refactoring
+* Component Responsibility
+
+In this lesson, I refactored the list of tags into its own component.
+
+The assignment list only keeps track of the currently selected tag, filtering assignments by tag and lets the component
+handle the rendering of the tags.
+
+```html
+
+<assignment-tags
+        :initial-tags="assignments.map(a => a.tag)"
+        :current-tag="currentTag"
+        @change="currentTag = $event"
+/>
+```
+
+The interaction between the AssignmentList and the AssignmentTags is done by passing the current tag to the child
+component and the child component emits an event to signal that the current tag has to change.
