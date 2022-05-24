@@ -81,3 +81,19 @@ In the Vue component the prop becomes modelValue, and the event that has to be e
 
 Instead of modelValue, you can use any other variable name but make sure you use the v-model directive using that same
 variable name like this: v-model:var-name.
+
+# Lifecycle Hooks, Fake APIs, and AJAX
+
+## Things You'll Learn
+
+* Component hooks
+* json-server
+* Promises
+
+We first installed and booted up a server using json-server. Created a db.json database for our assignments.
+
+Then we need to make an AJAX request to this server and retreive this data. This request should be done before the
+element is mounted to the app but after it was created so the created() hook is perfect for this.
+
+We make an AJAX request using fetch() to that endpoint and get a Promise back which will be resolved after the response
+is available. then() we need the json representation of that response, and then() assign it to our assignments property.
