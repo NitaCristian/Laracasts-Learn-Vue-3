@@ -8,11 +8,13 @@ export default {
     },
 
     template: `
-      <section class="space-y-6">
+      <section class="flex gap-8">
 
-      <assignment-list :assignments="filters.inProgress" title="In Progress"></assignment-list>
-      <assignment-list :assignments="filters.completed" title="Completed"></assignment-list>
-      <assignment-create @add="add"></assignment-create>
+      <assignment-list :assignments="filters.inProgress" title="In Progress">
+        <assignment-create @add="add"></assignment-create>
+      </assignment-list>
+      
+      <assignment-list :assignments="filters.completed" title="Completed" can-toggle></assignment-list>
 
       </section>
     `,
@@ -33,7 +35,7 @@ export default {
     },
 
     created() {
-        fetch('http://localhost:3000/assignments')
+        fetch('http://localhost:3001/assignments')
             .then(response => response.json())
             .then(assignments =>
                 this.assignments = assignments

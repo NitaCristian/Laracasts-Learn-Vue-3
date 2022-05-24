@@ -17,6 +17,12 @@
       "complete": false,
       "id": 3,
       "tag": "science"
+    },
+    {
+      "name": "Complete Video",
+      "complete": true,
+      "id": 4,
+      "tag": "programming"
     }
   ]
 }
